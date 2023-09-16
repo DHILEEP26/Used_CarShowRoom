@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contant form</title>
+    <link rel="stylesheet" href="css/subscribe.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>SE Cars</h3>
+            <input type="text" id="name" placeholder="your Name" required>
+            <input type="email" id="email" placeholder="Email id" required>
+            <input type="text" id="phone" placeholder="phone number" required>
+            <textarea id="message" rows="4" placeholder="comment"></textarea>
+            <button type="submit">send</button>
+        </form>
+
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                   Host : "smtp.elasticemail.com",
+                   Username : "dhileepkumar441@gmail.com",
+                   Password : "46FFA9F2A91D60122EC25727155EFA31E9AF",
+                   To : document.getElementById("email").value,
+                   From : "dhileepkumar441@gmail.com",
+                   Subject : "Mail from SE cars",
+                   Body : "Your now a Member of SE Cars!!!!!!!  For any needed information contact:dhileepkumar441@gmail.com"
+              }).then(
+              message => alert(message)
+);
+        }
+    </script>
+    
+</body>
+</html>
